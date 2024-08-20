@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = never;
+type HomepageDocumentDataSlicesSlice = TopTourSummarySlice;
 
 /**
  * Content for Homepage documents
@@ -114,6 +114,168 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = HomepageDocument | SettingsDocument;
 
+/**
+ * Item in *TopTourSummary → Default → Primary → Details*
+ */
+export interface TopTourSummarySliceDefaultPrimaryDetailsItem {
+  /**
+   * Title field in *TopTourSummary → Default → Primary → Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.details[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *TopTourSummary → Default → Primary → Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.details[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Icon field in *TopTourSummary → Default → Primary → Details*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.details[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *TopTourSummary → Default → Primary*
+ */
+export interface TopTourSummarySliceDefaultPrimary {
+  /**
+   * Tour Image field in *TopTourSummary → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.tour_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  tour_image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *TopTourSummary → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *TopTourSummary → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Details field in *TopTourSummary → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.details[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  details: prismic.GroupField<
+    Simplify<TopTourSummarySliceDefaultPrimaryDetailsItem>
+  >;
+
+  /**
+   * Booking Info title field in *TopTourSummary → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.booking_info_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  booking_info_title: prismic.RichTextField;
+
+  /**
+   * Booking Info Description field in *TopTourSummary → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.booking_info_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  booking_info_description: prismic.RichTextField;
+
+  /**
+   * Booking Info Link field in *TopTourSummary → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.booking_info_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  booking_info_link: prismic.LinkField;
+
+  /**
+   * Trip Code Text field in *TopTourSummary → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.trip_code_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  trip_code_text: prismic.KeyTextField;
+
+  /**
+   * Trip Code Value field in *TopTourSummary → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: top_tour_summary.default.primary.trip_code_value
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  trip_code_value: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for TopTourSummary Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TopTourSummarySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TopTourSummarySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TopTourSummary*
+ */
+type TopTourSummarySliceVariation = TopTourSummarySliceDefault;
+
+/**
+ * TopTourSummary Shared Slice
+ *
+ * - **API ID**: `top_tour_summary`
+ * - **Description**: TopTourSummary
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TopTourSummarySlice = prismic.SharedSlice<
+  "top_tour_summary",
+  TopTourSummarySliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -130,6 +292,11 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      TopTourSummarySlice,
+      TopTourSummarySliceDefaultPrimaryDetailsItem,
+      TopTourSummarySliceDefaultPrimary,
+      TopTourSummarySliceVariation,
+      TopTourSummarySliceDefault,
     };
   }
 }

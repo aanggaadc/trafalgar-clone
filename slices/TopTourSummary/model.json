@@ -1,0 +1,117 @@
+{
+  "id": "top_tour_summary",
+  "type": "SharedSlice",
+  "name": "TopTourSummary",
+  "description": "TopTourSummary",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "tour_image": {
+          "type": "Image",
+          "config": {
+            "label": "Tour Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,strong,em"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "details": {
+          "type": "Group",
+          "config": {
+            "label": "Details",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              },
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "booking_info_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Booking Info title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,strong,em"
+          }
+        },
+        "booking_info_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Booking Info Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "booking_info_link": {
+          "type": "Link",
+          "config": {
+            "label": "Booking Info Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "trip_code_text": {
+          "type": "Text",
+          "config": {
+            "label": "Trip Code Text",
+            "placeholder": ""
+          }
+        },
+        "trip_code_value": {
+          "type": "Text",
+          "config": {
+            "label": "Trip Code Value",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
