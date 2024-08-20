@@ -15,7 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         "source-serif": ["var(--font-source-serif)", "serif"],
-        "n0to-sans": ["Noto Sans", "sans-serif"],
+        "noto-sans": ["Noto Sans", "sans-serif"],
       },
     },
   },
