@@ -16,18 +16,18 @@ export type TopTourSummaryProps =
 const TopTourSummary = ({ slice }: TopTourSummaryProps): JSX.Element => {
   return (
     <section
-      className="flex flex-col"
+      className="flex flex-col lg:flex-row lg:gap-9"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="w-full aspect-[25/22] overflow-hidden">
+      <div className="w-full aspect-[25/22] overflow-hidden lg:aspect-[171/187] lg:w-6/12">
         <PrismicNextImage
           className="w-full h-full object-cover object-center"
           field={slice.primary.tour_image}
         />
       </div>
 
-      <div className="pt-4 pb-6 px-4">
+      <div className="max-w-[868px] pt-4 pb-6 px-4 lg:w-6/12  lg:pl-0 lg:pr-12 lg:pt-8 lg:pb-[1.125rem]">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-[0.6rem]">
             <CalendarIcon className="w-[18px] h-[18px] fill-[#414141]" />
@@ -50,7 +50,7 @@ const TopTourSummary = ({ slice }: TopTourSummaryProps): JSX.Element => {
           field={slice.primary.title}
           components={{
             heading2: ({ children }) => (
-              <h2 className="text-[22px] font-bold font-source-serif mb-2 text-gray">
+              <h2 className="text-[22px] leading-tight font-bold font-source-serif mb-2 text-gray lg:text-[32px] lg:mb-5">
                 {children}
               </h2>
             ),
@@ -61,14 +61,14 @@ const TopTourSummary = ({ slice }: TopTourSummaryProps): JSX.Element => {
           field={slice.primary.description}
           components={{
             paragraph: ({ children }) => (
-              <p className="font-noto-sans text-gray text-sm leading-tight mb-8">
+              <p className="font-noto-sans text-gray text-sm leading-tight mb-8 mt-3 lg:text-base lg:my-3">
                 {children}
               </p>
             ),
           }}
         />
 
-        <div className="grid grid-cols-[repeat(2,1fr)] gap-[2rem_2rem] mt-[0.8rem] mb-6">
+        <div className="grid grid-cols-[repeat(2,1fr)] gap-[2rem_2rem] mt-[0.8rem] mb-6 lg:mt-3 lg:mb-6">
           {slice.primary.details.map((item) => (
             <div key={item.title}>
               <div className="flex items-center gap-2 mb-2">
