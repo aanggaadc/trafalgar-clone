@@ -44,11 +44,11 @@ const ItineraryCard = () => {
                 isOpen ? "lg:-translate-x-[200px]" : ""
               }`}
             >
-              <p className="text-light-gray font-noto-sans font-semibold text-xs mb-[.625rem]">
+              <p className="text-light-gray font-noto-sans font-semibold text-xs mb-[.625rem] lg:text-base">
                 Day 1
               </p>
               <div className="flex flex-col lg:flex-row lg:items-center gap-[.625rem] lg:gap-[1rem] ">
-                <p className="font-bold font-source-serif text-gray">
+                <p className="font-bold font-source-serif text-gray lg:text-lg">
                   Welcome Rome
                 </p>
                 <p className="text-sm font-noto-sans text-light-gray">Rome</p>
@@ -57,7 +57,7 @@ const ItineraryCard = () => {
           </div>
 
           <AccordionTrigger className="flex items-center gap-2">
-            <span className="hidden lg:block">
+            <span className="font-noto-sans font-bold text-base hidden lg:block">
               {isOpen ? "See less" : "See more"}
             </span>
           </AccordionTrigger>
@@ -87,7 +87,7 @@ const ItineraryCard = () => {
                     : "opacity-0 -translate-y-6"
                 }`}
               >
-                <p className="text-light-gray font-semibold font-noto-sans mb-2 hidden lg:block">
+                <p className="text-light-gray text-base font-semibold font-noto-sans mb-2 hidden lg:block">
                   Day 1
                 </p>
                 <h2 className="font-source-serif text-lg mb-6 font-bold text-gray lg:text-[28px] lg:mb-2">

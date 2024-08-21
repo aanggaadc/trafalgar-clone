@@ -30,10 +30,10 @@ const DetailCard = () => {
       </div>
 
       <div className="flex flex-col gap-1 lg:flex-row">
-        <p className="font-semibold text-gray text-sm font-noto-sans">
+        <p className="font-semibold text-gray text-sm font-noto-sans lg:text-base">
           Arrival Transfer
         </p>
-        <p className="text-dark text-light-gray text-sm font-noto-sans">
+        <p className="text-dark text-light-gray text-sm font-noto-sans lg:text-base">
           Depart Leonardo da Vinci airport (FCO) at 09:30, 12:30, 15:30
         </p>
       </div>
