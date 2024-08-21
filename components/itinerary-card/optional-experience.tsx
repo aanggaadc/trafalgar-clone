@@ -33,7 +33,7 @@ const OptionalExperience = () => {
           Included and optional experiences
         </p>
 
-        <div className="flex items-center gap-6">
+        <div className="hidden items-center gap-6 lg:flex">
           <button
             onClick={() => api?.scrollPrev()}
             disabled={api && api?.canScrollPrev() ? false : true}
