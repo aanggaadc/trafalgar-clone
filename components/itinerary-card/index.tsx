@@ -7,11 +7,30 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
+import { PrismicRichText } from "@prismicio/react";
+import { PrismicNextImage } from "@prismicio/next";
+import { ImageFieldImage, RichTextField } from "@prismicio/client";
 import DetailCard from "./detail-card";
 import OptionalExperience from "./optional-experience";
+import { DetailCardProps } from "./detail-card";
+import { OptionalCardProps } from "./optional-card";
+interface ItineraryCardProps {
+  index: number;
+  title: RichTextField;
+  image: ImageFieldImage;
+  description: RichTextField;
+  details: DetailCardProps[];
+  experiences: OptionalCardProps[];
+}
 
-const ItineraryCard = () => {
+const ItineraryCard: React.FC<ItineraryCardProps> = ({
+  index,
+  title,
+  image,
+  description,
+  details,
+  experiences,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onToggle = useCallback(() => {
@@ -32,10 +51,9 @@ const ItineraryCard = () => {
                 isOpen ? "-translate-x-full opacity-0" : ""
               }`}
             >
-              <img
+              <PrismicNextImage
+                field={image}
                 className="w-full h-full object-cover object-center"
-                alt="St. Peter's Basilica"
-                src="https://www.trafalgar.com/media/4xxbzyvd/st-peters-basilica-rome-italy-1.jpg?crop=0%2C0.13655549983283186%2C0%2C0.017155633567368662&cropmode=percentage&format=webp&mode=crop&width=400&height=190&quality=80"
               />
             </div>
 
@@ -45,12 +63,20 @@ const ItineraryCard = () => {
               }`}
             >
               <p className="text-light-gray font-noto-sans font-semibold text-xs mb-[.625rem] lg:text-base">
-                Day 1
+                Day {index + 1}
               </p>
               <div className="flex flex-col lg:flex-row lg:items-center gap-[.625rem] lg:gap-[1rem] ">
-                <p className="font-bold font-source-serif text-gray lg:text-lg">
-                  Welcome Rome
-                </p>
+                <PrismicRichText
+                  field={title}
+                  components={{
+                    heading2: ({ children }) => (
+                      <h2 className="font-bold font-source-serif text-gray lg:text-lg">
+                        {children}
+                      </h2>
+                    ),
+                  }}
+                />
+
                 <p className="text-sm font-noto-sans text-light-gray">Rome</p>
               </div>
             </div>
@@ -73,10 +99,9 @@ const ItineraryCard = () => {
                     : "-translate-y-full opacity-0"
                 }`}
               >
-                <img
+                <PrismicNextImage
+                  field={image}
                   className="w-full h-full object-cover object-center"
-                  alt="St. Peter's Basilica"
-                  src="https://www.trafalgar.com/media/4xxbzyvd/st-peters-basilica-rome-italy-1.jpg?crop=0%2C0.13655549983283186%2C0%2C0.017155633567368662&cropmode=percentage&format=webp&mode=crop&width=400&height=190&quality=80"
                 />
               </div>
 
@@ -88,33 +113,39 @@ const ItineraryCard = () => {
                 }`}
               >
                 <p className="text-light-gray text-base font-semibold font-noto-sans mb-2 hidden lg:block">
-                  Day 1
+                  Day {index + 1}
                 </p>
-                <h2 className="font-source-serif text-lg mb-6 font-bold text-gray lg:text-[28px] lg:mb-2">
-                  Welcome Rome
-                </h2>
+                <PrismicRichText
+                  field={title}
+                  components={{
+                    heading2: ({ children }) => (
+                      <h2 className="font-source-serif text-lg mb-6 font-bold text-gray lg:text-[28px] lg:mb-2">
+                        {children}
+                      </h2>
+                    ),
+                  }}
+                />
 
-                <p className="leading-[150%] text-sm font-noto-sans text-light-gray mb-4 lg:text-base lg:leading-[170%]">
-                  Ciao Roma! Explore this imperial city of emperors and
-                  senators, gods and goddesses before joining your Travel
-                  Director for an introduction to the 'Eternal City'. Arrive at
-                  Basilica Santa Maria in Cosmedin for a private after-hours
-                  visit to the Mouth of Truth. See the church, crypt and relics
-                  of the famous saint of love, Valentine, and learn about the
-                  legend of the Mouth of Truth. This evening, enjoy dinner with
-                  your travel companions.
-                </p>
+                <PrismicRichText
+                  field={description}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <p className="leading-[150%] text-sm font-noto-sans text-light-gray mb-4 lg:text-base lg:leading-[170%]">
+                        {children}
+                      </p>
+                    ),
+                  }}
+                />
 
                 <div className="flex flex-col gap-2">
-                  <DetailCard />
-                  <DetailCard />
-                  <DetailCard />
-                  <DetailCard />
+                  {details.map((detail, index) => (
+                    <DetailCard key={index} {...detail} />
+                  ))}
                 </div>
               </div>
             </div>
 
-            <OptionalExperience />
+            <OptionalExperience data={experiences} />
           </div>
         </AccordionContent>
       </AccordionItem>

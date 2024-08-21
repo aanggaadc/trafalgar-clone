@@ -3,5 +3,6 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  day_by_day: dynamic(() => import("./DayByDay")),
   top_tour_summary: dynamic(() => import("./TopTourSummary")),
 };

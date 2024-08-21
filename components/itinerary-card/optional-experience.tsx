@@ -5,10 +5,14 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import OptionalCard from "./optional-card";
+import OptionalCard, { OptionalCardProps } from "./optional-card";
 import { ChevronIcon } from "../icons";
 
-const OptionalExperience = () => {
+export interface OptionalExperienceProps {
+  data: OptionalCardProps[];
+}
+
+const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState(0);
@@ -54,24 +58,11 @@ const OptionalExperience = () => {
 
       <Carousel setApi={setApi}>
         <CarouselContent>
-          <CarouselItem className="lg:basis-1/2 xl:basis-1/3 xl">
-            <OptionalCard />
-          </CarouselItem>
-          <CarouselItem className="lg:basis-1/2 xl:basis-1/3">
-            <OptionalCard />
-          </CarouselItem>
-          <CarouselItem className="lg:basis-1/2 xl:basis-1/3">
-            <OptionalCard />
-          </CarouselItem>
-          <CarouselItem className="lg:basis-1/2 xl:basis-1/3">
-            <OptionalCard />
-          </CarouselItem>
-          <CarouselItem className="lg:basis-1/2 xl:basis-1/3">
-            <OptionalCard />
-          </CarouselItem>
-          <CarouselItem className="lg:basis-1/2 xl:basis-1/3">
-            <OptionalCard />
-          </CarouselItem>
+          {data.map((item, index) => (
+            <CarouselItem key={index} className="lg:basis-1/2 xl:basis-1/3">
+              <OptionalCard {...item} />
+            </CarouselItem>
+          ))}
         </CarouselContent>
       </Carousel>
 
