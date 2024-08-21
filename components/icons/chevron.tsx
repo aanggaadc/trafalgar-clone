@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export const ChevronLeftIcon: React.FC<IIcon> = ({ className }) => {
+export const ChevronIcon: React.FC<IIcon> = ({ className }) => {
   return (
     <svg
       className={cn("w-6 h-6", className)}

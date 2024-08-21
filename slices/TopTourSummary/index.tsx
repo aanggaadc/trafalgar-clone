@@ -2,7 +2,7 @@ import React from "react";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { CalendarIcon, ChevronLeftIcon } from "@/components/icons";
+import { CalendarIcon, ChevronIcon } from "@/components/icons";
 
 /**
  * Props for `TopTourSummary`.
@@ -119,7 +119,7 @@ const TopTourSummary = ({ slice }: TopTourSummaryProps): JSX.Element => {
               }}
             />
           </span>
-          <ChevronLeftIcon className="flex-none fill-[#414141]" />
+          <ChevronIcon className="flex-none fill-[#414141]" />
         </PrismicNextLink>
 
         <div className="border-b-[#d9d9d9] border-b border-solid lg:border-none">
