@@ -1,5 +1,6 @@
 "use client";
 
+import { Content } from "@prismicio/client";
 import { useState, useCallback } from "react";
 import {
   Accordion,
@@ -19,8 +20,8 @@ interface ItineraryCardProps {
   title: RichTextField;
   image: ImageFieldImage;
   description: RichTextField;
-  details: DetailCardProps[] | undefined;
-  experiences: OptionalCardProps[] | undefined;
+  details: (Content.DayDetailsDocument<string> | undefined)[];
+  experiences: (Content.DayExperiencesDocument<string> | undefined)[];
 }
 
 const ItineraryCard: React.FC<ItineraryCardProps> = ({
@@ -32,6 +33,15 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
   experiences,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const detailList = details.filter(
+    (detail) => detail?.data.ref === `day-${index + 1}`
+  );
+
+  const experienceList = experiences.filter(
+    (experience) => experience?.data.ref === `day-${index + 1}`
+  );
+
+  console.log(experienceList);
 
   const onToggle = useCallback(() => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
@@ -138,14 +148,19 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                 />
 
                 <div className="flex flex-col gap-2">
-                  {details?.map((detail, index) => (
-                    <DetailCard key={index} {...detail} />
+                  {detailList?.map((detail, index) => (
+                    <DetailCard
+                      key={index}
+                      name={detail?.data.name}
+                      description={detail?.data.description}
+                      icon={detail?.data.icon}
+                    />
                   ))}
                 </div>
               </div>
             </div>
 
-            <OptionalExperience data={experiences} />
+            <OptionalExperience data={experienceList} />
           </div>
         </AccordionContent>
       </AccordionItem>

@@ -2,18 +2,18 @@ import { PrismicNextImage } from "@prismicio/next";
 import { ImageFieldImage, KeyTextField } from "@prismicio/client";
 
 export interface DetailCardProps {
-  name: KeyTextField;
-  description: KeyTextField;
-  icon: ImageFieldImage;
+  name: KeyTextField | undefined;
+  description: KeyTextField | undefined;
+  icon: ImageFieldImage | undefined;
 }
 
 const DetailCard: React.FC<DetailCardProps> = ({ name, description, icon }) => {
   return (
     <div className="flex gap-2">
-      <div className="w-[40px] h-[36px] overflow-hidden">
+      <div className="flex-none w-[40px] h-[36px] overflow-hidden">
         <PrismicNextImage
           field={icon}
-          className="w-full h-full object-cover object-center"
+          className="w-[70%] h-[70%] object-contain object-center"
         />
       </div>
 

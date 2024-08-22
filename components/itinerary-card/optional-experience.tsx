@@ -1,3 +1,4 @@
+import { Content } from "@prismicio/client";
 import { useState, useEffect } from "react";
 import {
   Carousel,
@@ -9,7 +10,7 @@ import OptionalCard, { OptionalCardProps } from "./optional-card";
 import { ChevronIcon } from "../icons";
 
 export interface OptionalExperienceProps {
-  data: OptionalCardProps[] | undefined;
+  data: (Content.DayExperiencesDocument<string> | undefined)[];
 }
 
 const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
@@ -60,7 +61,12 @@ const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
         <CarouselContent>
           {data?.map((item, index) => (
             <CarouselItem key={index} className="lg:basis-1/2 xl:basis-1/3">
-              <OptionalCard {...item} />
+              <OptionalCard
+                label={item?.data.label}
+                title={item?.data.title}
+                description={item?.data.description}
+                image={item?.data.image}
+              />
             </CarouselItem>
           ))}
         </CarouselContent>

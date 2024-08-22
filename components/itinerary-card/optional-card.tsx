@@ -8,10 +8,10 @@ import {
 import { ChecklistIcon } from "../icons";
 
 export interface OptionalCardProps {
-  label: KeyTextField;
-  title: RichTextField;
-  description: RichTextField;
-  image: ImageFieldImage;
+  label: KeyTextField | undefined;
+  title: RichTextField | undefined;
+  description: RichTextField | undefined;
+  image: ImageFieldImage | undefined;
 }
 
 const OptionalCard: React.FC<OptionalCardProps> = ({

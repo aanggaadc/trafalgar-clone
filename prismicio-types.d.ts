@@ -4,6 +4,147 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Content for Day Details documents
+ */
+interface DayDetailsDocumentData {
+  /**
+   * Name field in *Day Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_details.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Reference field in *Day Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_details.ref
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  ref: prismic.KeyTextField;
+
+  /**
+   * Description field in *Day Details*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_details.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Icon field in *Day Details*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_details.icon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+}
+
+/**
+ * Day Details document from Prismic
+ *
+ * - **API ID**: `day_details`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type DayDetailsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<DayDetailsDocumentData>,
+    "day_details",
+    Lang
+  >;
+
+/**
+ * Content for Day Experiences documents
+ */
+interface DayExperiencesDocumentData {
+  /**
+   * Title field in *Day Experiences*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_experiences.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Day Experiences*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_experiences.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Label field in *Day Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_experiences.label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Image field in *Day Experiences*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_experiences.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Reference field in *Day Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_experiences.ref
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  ref: prismic.KeyTextField;
+}
+
+/**
+ * Day Experiences document from Prismic
+ *
+ * - **API ID**: `day_experiences`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type DayExperiencesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<DayExperiencesDocumentData>,
+    "day_experiences",
+    Lang
+  >;
+
 type HomepageDocumentDataSlicesSlice = DayByDaySlice | TopTourSummarySlice;
 
 /**
@@ -112,7 +253,11 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | DayDetailsDocument
+  | DayExperiencesDocument
+  | HomepageDocument
+  | SettingsDocument;
 
 /**
  * Item in *DayByDay → Default → Primary → items*
@@ -150,83 +295,33 @@ export interface DayByDaySliceDefaultPrimaryItemsItem {
 }
 
 /**
- * Item in *DayByDay → Default → Primary → Details Day 1*
+ * Item in *DayByDay → Default → Primary → Details*
  */
-export interface DayByDaySliceDefaultPrimaryDetailsDay1Item {
+export interface DayByDaySliceDefaultPrimaryDetailsItem {
   /**
-   * Icon field in *DayByDay → Default → Primary → Details Day 1*
+   * items field in *DayByDay → Default → Primary → Details*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.details_day_1[].icon
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **API ID Path**: day_by_day.default.primary.details[].items
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  icon: prismic.ImageField<never>;
-
-  /**
-   * Name field in *DayByDay → Default → Primary → Details Day 1*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.details_day_1[].name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  name: prismic.KeyTextField;
-
-  /**
-   * Description field in *DayByDay → Default → Primary → Details Day 1*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.details_day_1[].description
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description: prismic.KeyTextField;
+  items: prismic.ContentRelationshipField<"day_details">;
 }
 
 /**
- * Item in *DayByDay → Default → Primary → Experiences Day 1*
+ * Item in *DayByDay → Default → Primary → Experiences*
  */
-export interface DayByDaySliceDefaultPrimaryExperiencesDay1Item {
+export interface DayByDaySliceDefaultPrimaryExperiencesItem {
   /**
-   * Label field in *DayByDay → Default → Primary → Experiences Day 1*
+   * Items field in *DayByDay → Default → Primary → Experiences*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.experiences_day_1[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: day_by_day.default.primary.experiences[].items
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  label: prismic.KeyTextField;
-
-  /**
-   * Image field in *DayByDay → Default → Primary → Experiences Day 1*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.experiences_day_1[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Title field in *DayByDay → Default → Primary → Experiences Day 1*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.experiences_day_1[].title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *DayByDay → Default → Primary → Experiences Day 1*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.experiences_day_1[].description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
+  items: prismic.ContentRelationshipField<"day_experiences">;
 }
 
 /**
@@ -264,27 +359,25 @@ export interface DayByDaySliceDefaultPrimary {
   items: prismic.GroupField<Simplify<DayByDaySliceDefaultPrimaryItemsItem>>;
 
   /**
-   * Details Day 1 field in *DayByDay → Default → Primary*
+   * Details field in *DayByDay → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.details_day_1[]
+   * - **API ID Path**: day_by_day.default.primary.details[]
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  details_day_1: prismic.GroupField<
-    Simplify<DayByDaySliceDefaultPrimaryDetailsDay1Item>
-  >;
+  details: prismic.GroupField<Simplify<DayByDaySliceDefaultPrimaryDetailsItem>>;
 
   /**
-   * Experiences Day 1 field in *DayByDay → Default → Primary*
+   * Experiences field in *DayByDay → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.experiences_day_1[]
+   * - **API ID Path**: day_by_day.default.primary.experiences[]
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  experiences_day_1: prismic.GroupField<
-    Simplify<DayByDaySliceDefaultPrimaryExperiencesDay1Item>
+  experiences: prismic.GroupField<
+    Simplify<DayByDaySliceDefaultPrimaryExperiencesItem>
   >;
 }
 
@@ -490,6 +583,10 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      DayDetailsDocument,
+      DayDetailsDocumentData,
+      DayExperiencesDocument,
+      DayExperiencesDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -498,8 +595,8 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       DayByDaySlice,
       DayByDaySliceDefaultPrimaryItemsItem,
-      DayByDaySliceDefaultPrimaryDetailsDay1Item,
-      DayByDaySliceDefaultPrimaryExperiencesDay1Item,
+      DayByDaySliceDefaultPrimaryDetailsItem,
+      DayByDaySliceDefaultPrimaryExperiencesItem,
       DayByDaySliceDefaultPrimary,
       DayByDaySliceVariation,
       DayByDaySliceDefault,

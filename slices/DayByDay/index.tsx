@@ -1,9 +1,10 @@
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import ItineraryCard from "@/components/itinerary-card";
 import { getDayDetails } from "@/lib/utils";
 import { DetailCardProps } from "@/components/itinerary-card/detail-card";
 import { OptionalCardProps } from "@/components/itinerary-card/optional-card";
+import { createClient } from "@/prismicio";
 
 /**
  * Props for `DayByDay`.
@@ -13,7 +14,23 @@ export type DayByDayProps = SliceComponentProps<Content.DayByDaySlice>;
 /**
  * Component for "DayByDay" Slices.
  */
-const DayByDay = ({ slice }: DayByDayProps): JSX.Element => {
+const DayByDay = async ({ slice }: DayByDayProps): Promise<JSX.Element> => {
+  const client = createClient();
+
+  const details = await Promise.all(
+    slice.primary.details.map((item) => {
+      if (isFilled.contentRelationship(item.items) && item.items.uid)
+        return client.getByUID("day_details", item.items.uid);
+    })
+  );
+
+  const experiences = await Promise.all(
+    slice.primary.experiences.map((item) => {
+      if (isFilled.contentRelationship(item.items) && item.items.uid)
+        return client.getByUID("day_experiences", item.items.uid);
+    })
+  );
+
   return (
     <section
       className="pt-2"
@@ -51,20 +68,8 @@ const DayByDay = ({ slice }: DayByDayProps): JSX.Element => {
             image={item.image}
             title={item.title}
             description={item.description}
-            details={
-              getDayDetails(
-                slice.primary,
-                index + 1,
-                "details"
-              ) as DetailCardProps[]
-            }
-            experiences={
-              getDayDetails(
-                slice.primary,
-                index + 1,
-                "experiences"
-              ) as OptionalCardProps[]
-            }
+            details={details}
+            experiences={experiences}
           />
         ))}
       </div>

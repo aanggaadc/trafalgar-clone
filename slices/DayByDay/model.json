@@ -65,74 +65,39 @@
             }
           }
         },
-        "details_day_1": {
+        "details": {
           "type": "Group",
           "config": {
-            "label": "Details Day 1",
+            "label": "Details",
             "repeat": true,
             "fields": {
-              "icon": {
-                "type": "Image",
+              "items": {
+                "type": "Link",
                 "config": {
-                  "label": "Icon",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "name": {
-                "type": "Text",
-                "config": {
-                  "label": "Name",
-                  "placeholder": ""
-                }
-              },
-              "description": {
-                "type": "Text",
-                "config": {
-                  "label": "Description",
-                  "placeholder": ""
+                  "label": "items",
+                  "select": "document",
+                  "customtypes": [
+                    "day_details"
+                  ]
                 }
               }
             }
           }
         },
-        "experiences_day_1": {
+        "experiences": {
           "type": "Group",
           "config": {
-            "label": "Experiences Day 1",
+            "label": "Experiences",
             "repeat": true,
             "fields": {
-              "label": {
-                "type": "Text",
+              "items": {
+                "type": "Link",
                 "config": {
-                  "label": "Label",
-                  "placeholder": ""
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "title": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Title",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "heading2,strong,em"
-                }
-              },
-              "description": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Description",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,strong,em"
+                  "label": "Items",
+                  "select": "document",
+                  "customtypes": [
+                    "day_experiences"
+                  ]
                 }
               }
             }
