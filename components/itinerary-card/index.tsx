@@ -19,8 +19,8 @@ interface ItineraryCardProps {
   title: RichTextField;
   image: ImageFieldImage;
   description: RichTextField;
-  details: DetailCardProps[];
-  experiences: OptionalCardProps[];
+  details: DetailCardProps[] | undefined;
+  experiences: OptionalCardProps[] | undefined;
 }
 
 const ItineraryCard: React.FC<ItineraryCardProps> = ({
@@ -138,7 +138,7 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                 />
 
                 <div className="flex flex-col gap-2">
-                  {details.map((detail, index) => (
+                  {details?.map((detail, index) => (
                     <DetailCard key={index} {...detail} />
                   ))}
                 </div>

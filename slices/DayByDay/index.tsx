@@ -1,6 +1,9 @@
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import ItineraryCard from "@/components/itinerary-card";
+import { getDayDetails } from "@/lib/utils";
+import { DetailCardProps } from "@/components/itinerary-card/detail-card";
+import { OptionalCardProps } from "@/components/itinerary-card/optional-card";
 
 /**
  * Props for `DayByDay`.
@@ -48,8 +51,20 @@ const DayByDay = ({ slice }: DayByDayProps): JSX.Element => {
             image={item.image}
             title={item.title}
             description={item.description}
-            details={slice.primary.details_day_1}
-            experiences={slice.primary.experiences_day_1}
+            details={
+              getDayDetails(
+                slice.primary,
+                index + 1,
+                "details"
+              ) as DetailCardProps[]
+            }
+            experiences={
+              getDayDetails(
+                slice.primary,
+                index + 1,
+                "experiences"
+              ) as OptionalCardProps[]
+            }
           />
         ))}
       </div>

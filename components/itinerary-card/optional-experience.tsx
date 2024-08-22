@@ -9,7 +9,7 @@ import OptionalCard, { OptionalCardProps } from "./optional-card";
 import { ChevronIcon } from "../icons";
 
 export interface OptionalExperienceProps {
-  data: OptionalCardProps[];
+  data: OptionalCardProps[] | undefined;
 }
 
 const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
@@ -58,7 +58,7 @@ const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
 
       <Carousel setApi={setApi}>
         <CarouselContent>
-          {data.map((item, index) => (
+          {data?.map((item, index) => (
             <CarouselItem key={index} className="lg:basis-1/2 xl:basis-1/3">
               <OptionalCard {...item} />
             </CarouselItem>
