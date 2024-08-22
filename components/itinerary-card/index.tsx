@@ -41,8 +41,6 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
     (experience) => experience?.data.ref === `day-${index + 1}`
   );
 
-  console.log(experienceList);
-
   const onToggle = useCallback(() => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   }, []);
@@ -93,7 +91,7 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
           </div>
 
           <AccordionTrigger className="flex items-center gap-2">
-            <span className="font-noto-sans font-bold text-base hidden lg:block">
+            <span className="font-noto-sans font-bold text-base text-gray hidden lg:block">
               {isOpen ? "See less" : "See more"}
             </span>
           </AccordionTrigger>

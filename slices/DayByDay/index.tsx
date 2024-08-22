@@ -1,9 +1,6 @@
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import ItineraryCard from "@/components/itinerary-card";
-import { getDayDetails } from "@/lib/utils";
-import { DetailCardProps } from "@/components/itinerary-card/detail-card";
-import { OptionalCardProps } from "@/components/itinerary-card/optional-card";
 import { createClient } from "@/prismicio";
 
 /**
@@ -33,45 +30,47 @@ const DayByDay = async ({ slice }: DayByDayProps): Promise<JSX.Element> => {
 
   return (
     <section
-      className="pt-2"
+      className="pt-2 lg:py-12"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="px-4 py-5">
-        <PrismicRichText
-          field={slice.primary.title}
-          components={{
-            heading2: ({ children }) => (
-              <h2 className="text-center text-gray font-source-serif font-bold leading-[125%] text-[22px] mb-2">
-                {children}
-              </h2>
-            ),
-          }}
-        />
-        <PrismicRichText
-          field={slice.primary.description}
-          components={{
-            paragraph: ({ children }) => (
-              <p className="text-light-gray text-sm font-sans leading-[150%] text-center">
-                {children}
-              </p>
-            ),
-          }}
-        />
-      </div>
-
-      <div className="flex flex-col">
-        {slice.primary.items.map((item, index) => (
-          <ItineraryCard
-            key={index}
-            index={index}
-            image={item.image}
-            title={item.title}
-            description={item.description}
-            details={details}
-            experiences={experiences}
+      <div className="max-w-[1380px] mx-auto lg:px-6 2xl:lg:px-0">
+        <div className="px-4 py-5 lg:p-0 lg:mb-5">
+          <PrismicRichText
+            field={slice.primary.title}
+            components={{
+              heading2: ({ children }) => (
+                <h2 className="text-center text-gray font-source-serif font-bold leading-[125%] text-[22px] mb-2 lg:text-left lg:text-[28px] lg:leading-[125%] xl:text-[32px]">
+                  {children}
+                </h2>
+              ),
+            }}
           />
-        ))}
+          <PrismicRichText
+            field={slice.primary.description}
+            components={{
+              paragraph: ({ children }) => (
+                <p className="text-light-gray text-sm font-sans leading-[150%] text-center lg:text-left">
+                  {children}
+                </p>
+              ),
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col lg:gap-4">
+          {slice.primary.items.map((item, index) => (
+            <ItineraryCard
+              key={index}
+              index={index}
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              details={details}
+              experiences={experiences}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
