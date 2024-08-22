@@ -412,6 +412,127 @@ export type DayByDaySlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Highlights → Default → Primary → Items*
+ */
+export interface HighlightsSliceDefaultPrimaryItemsItem {
+  /**
+   * Icon field in *Highlights → Default → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Highlights → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Highlights → Default → Primary*
+ */
+export interface HighlightsSliceDefaultPrimary {
+  /**
+   * Title field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Is Link field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: highlights.default.primary.is_link
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_link: prismic.BooleanField;
+
+  /**
+   * Link Text field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+
+  /**
+   * Link URL field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.link_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_url: prismic.LinkField;
+
+  /**
+   * Items field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<HighlightsSliceDefaultPrimaryItemsItem>>;
+}
+
+/**
+ * Default variation for Highlights Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HighlightsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HighlightsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Highlights*
+ */
+type HighlightsSliceVariation = HighlightsSliceDefault;
+
+/**
+ * Highlights Shared Slice
+ *
+ * - **API ID**: `highlights`
+ * - **Description**: Highlights
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HighlightsSlice = prismic.SharedSlice<
+  "highlights",
+  HighlightsSliceVariation
+>;
+
+/**
  * Item in *TopTourSummary → Default → Primary → Details*
  */
 export interface TopTourSummarySliceDefaultPrimaryDetailsItem {
@@ -600,6 +721,11 @@ declare module "@prismicio/client" {
       DayByDaySliceDefaultPrimary,
       DayByDaySliceVariation,
       DayByDaySliceDefault,
+      HighlightsSlice,
+      HighlightsSliceDefaultPrimaryItemsItem,
+      HighlightsSliceDefaultPrimary,
+      HighlightsSliceVariation,
+      HighlightsSliceDefault,
       TopTourSummarySlice,
       TopTourSummarySliceDefaultPrimaryDetailsItem,
       TopTourSummarySliceDefaultPrimary,

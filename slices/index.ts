@@ -4,5 +4,6 @@ import dynamic from "next/dynamic";
 
 export const components = {
   day_by_day: dynamic(() => import("./DayByDay")),
+  highlights: dynamic(() => import("./Highlights")),
   top_tour_summary: dynamic(() => import("./TopTourSummary")),
 };
