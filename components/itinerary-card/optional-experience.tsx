@@ -18,6 +18,12 @@ const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState(0);
 
+  const onClickIndicator = (index: number) => {
+    if (!api) return;
+    api.scrollTo(index);
+    setCurrent(api.selectedScrollSnap());
+  };
+
   useEffect(() => {
     if (!api) return;
 
@@ -38,7 +44,9 @@ const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
           Included and optional experiences
         </p>
 
-        <div className="hidden items-center gap-6 lg:flex">
+        <div
+          className={`hidden items-center gap-6 lg:flex ${api && !api?.canScrollNext() && "opacity-0 invisible"}`}
+        >
           <button
             onClick={() => api?.scrollPrev()}
             disabled={api && api?.canScrollPrev() ? false : true}
@@ -96,11 +104,7 @@ const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
                         ? "w-3 h-3"
                         : "w-1 h-1"
                   }`}
-                  onClick={() => {
-                    if (!api) return;
-                    api.scrollTo(index);
-                    setCurrent(api.selectedScrollSnap());
-                  }}
+                  onClick={() => onClickIndicator(index)}
                 />
               );
             })}
