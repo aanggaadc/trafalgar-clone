@@ -96,17 +96,6 @@ interface DayExperiencesDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * Label field in *Day Experiences*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_experiences.label
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-
-  /**
    * Image field in *Day Experiences*
    *
    * - **Field Type**: Image
@@ -118,15 +107,27 @@ interface DayExperiencesDocumentData {
   image: prismic.ImageField<never>;
 
   /**
-   * Reference field in *Day Experiences*
+   * Include Trip field in *Day Experiences*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **API ID Path**: day_experiences.ref
+   * - **Default Value**: false
+   * - **API ID Path**: day_experiences.is_include
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#boolean
    */
-  ref: prismic.KeyTextField;
+  is_include: prismic.BooleanField;
+
+  /**
+   * Url field in *Day Experiences*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_experiences.url
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField;
 }
 
 /**

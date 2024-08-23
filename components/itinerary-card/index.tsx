@@ -36,7 +36,6 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const tag = `day-${index + 1}`;
   const detailList = details.filter((detail) => detail?.tags.includes(tag));
-
   const experienceList = experiences.filter((experience) =>
     experience?.tags.includes(tag)
   );

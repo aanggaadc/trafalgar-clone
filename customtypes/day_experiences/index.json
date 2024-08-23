@@ -30,13 +30,6 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "label": {
-        "type": "Text",
-        "config": {
-          "label": "Label",
-          "placeholder": ""
-        }
-      },
       "image": {
         "type": "Image",
         "config": {
@@ -45,11 +38,22 @@
           "thumbnails": []
         }
       },
-      "ref": {
-        "type": "Text",
+      "is_include": {
+        "type": "Boolean",
         "config": {
-          "label": "Reference",
-          "placeholder": ""
+          "label": "Include Trip",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
+      },
+      "url": {
+        "type": "Link",
+        "config": {
+          "label": "Url",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
         }
       }
     }
