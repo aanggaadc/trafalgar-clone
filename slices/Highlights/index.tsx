@@ -18,7 +18,7 @@ const Highlights = ({ slice }: HighlightsProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="px-4 py-6 flex flex-col gap-4 lg:py-12 lg:px-[clamp(0.5rem,(100vw_-_1380px)/2,100vw)]">
+      <div className="px-4 py-6 flex flex-col gap-4 lg:py-12 lg:gap-0 lg:px-[clamp(0.5rem,(100vw_-_1380px)/2,100vw)]">
         <PrismicRichText
           field={slice.primary.title}
           components={{
@@ -36,7 +36,7 @@ const Highlights = ({ slice }: HighlightsProps): JSX.Element => {
               field={slice.primary.description}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="text-light-gray  text-2xl font-source-serif font-bold leading-[125%] text-center lg:text-lg lg:text-left text-nowrap xl:text-2xl">
+                  <p className="text-light-gray  text-2xl font-source-serif font-bold leading-[125%] text-center lg:text-lg lg:text-left xl:text-2xl">
                     {children}
                   </p>
                 ),
@@ -54,7 +54,7 @@ const Highlights = ({ slice }: HighlightsProps): JSX.Element => {
           </div>
 
           <div className="flex flex-col lg:flex-row lg:gap-6 lg:w-[70%]">
-            <div className="mt-6 lg:mt-0 lg:w-6/12">
+            <div className="mt-6 flex flex-col gap-6 lg:mt-0 lg:w-6/12">
               {slice.primary.items_left.map((item, index) => (
                 <div key={index} className="flex gap-6">
                   <div className="flex-none w-10 h-10 overflow-hidden">
@@ -78,7 +78,7 @@ const Highlights = ({ slice }: HighlightsProps): JSX.Element => {
               ))}
             </div>
 
-            <div className="mt-6 lg:mt-0 lg:w-6/12">
+            <div className="mt-6 flex flex-col gap-6 lg:mt-0 lg:w-6/12">
               {slice.primary.item_right.map((item, index) => (
                 <div key={index} className="flex gap-6">
                   <div className="flex-none w-10 h-10 overflow-hidden">
