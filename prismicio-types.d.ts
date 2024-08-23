@@ -412,25 +412,50 @@ export type DayByDaySlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Highlights → Default → Primary → Items*
+ * Item in *Highlights → Default → Primary → Items Left*
  */
-export interface HighlightsSliceDefaultPrimaryItemsItem {
+export interface HighlightsSliceDefaultPrimaryItemsLeftItem {
   /**
-   * Icon field in *Highlights → Default → Primary → Items*
+   * Icon field in *Highlights → Default → Primary → Items Left*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: highlights.default.primary.items[].icon
+   * - **API ID Path**: highlights.default.primary.items_left[].icon
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   icon: prismic.ImageField<never>;
 
   /**
-   * Name field in *Highlights → Default → Primary → Items*
+   * Name field in *Highlights → Default → Primary → Items Left*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: highlights.default.primary.items[].name
+   * - **API ID Path**: highlights.default.primary.items_left[].name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.RichTextField;
+}
+
+/**
+ * Item in *Highlights → Default → Primary → Item Right*
+ */
+export interface HighlightsSliceDefaultPrimaryItemRightItem {
+  /**
+   * Icon field in *Highlights → Default → Primary → Item Right*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.item_right[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Highlights → Default → Primary → Item Right*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.item_right[].name
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   name: prismic.RichTextField;
@@ -492,14 +517,38 @@ export interface HighlightsSliceDefaultPrimary {
   link_url: prismic.LinkField;
 
   /**
-   * Items field in *Highlights → Default → Primary*
+   * Link Color field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.link_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  link_color: prismic.ColorField;
+
+  /**
+   * Items Left field in *Highlights → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: highlights.default.primary.items[]
+   * - **API ID Path**: highlights.default.primary.items_left[]
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  items: prismic.GroupField<Simplify<HighlightsSliceDefaultPrimaryItemsItem>>;
+  items_left: prismic.GroupField<
+    Simplify<HighlightsSliceDefaultPrimaryItemsLeftItem>
+  >;
+
+  /**
+   * Item Right field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.item_right[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  item_right: prismic.GroupField<
+    Simplify<HighlightsSliceDefaultPrimaryItemRightItem>
+  >;
 }
 
 /**
@@ -722,7 +771,8 @@ declare module "@prismicio/client" {
       DayByDaySliceVariation,
       DayByDaySliceDefault,
       HighlightsSlice,
-      HighlightsSliceDefaultPrimaryItemsItem,
+      HighlightsSliceDefaultPrimaryItemsLeftItem,
+      HighlightsSliceDefaultPrimaryItemRightItem,
       HighlightsSliceDefaultPrimary,
       HighlightsSliceVariation,
       HighlightsSliceDefault,

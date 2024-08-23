@@ -34,7 +34,7 @@ const DayByDay = async ({ slice }: DayByDayProps): Promise<JSX.Element> => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="max-w-[1380px] mx-auto lg:px-6 2xl:lg:px-0">
+      <div className="lg:px-[clamp(0.5rem,(100vw_-_1380px)/2,100vw)]">
         <div className="px-4 py-5 lg:p-0 lg:mb-5">
           <PrismicRichText
             field={slice.primary.title}

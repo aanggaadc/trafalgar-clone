@@ -54,10 +54,43 @@
             "select": null
           }
         },
-        "items": {
+        "link_color": {
+          "type": "Color",
+          "config": {
+            "label": "Link Color",
+            "placeholder": ""
+          }
+        },
+        "items_left": {
           "type": "Group",
           "config": {
-            "label": "Items",
+            "label": "Items Left",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Name",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em"
+                }
+              }
+            }
+          }
+        },
+        "item_right": {
+          "type": "Group",
+          "config": {
+            "label": "Item Right",
             "repeat": true,
             "fields": {
               "icon": {

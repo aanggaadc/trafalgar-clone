@@ -9,8 +9,10 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Married"
-						}
+							"text": "About this trip",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
@@ -20,16 +22,25 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Pariatur consectetur et reprehenderit veniam aliquip consequat officia sit ipsum culpa exercitation. Incididunt tempor laboris magna veniam velit ut ad sint commodo laborum nostrud sit incididunt adipisicing. Anim laborum est aliquip irure occaecat dolor sit aliquip esse."
-						}
+							"text": "Sightseeing highlights",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
 			"is_link": {
 				"__TYPE__": "BooleanContent",
-				"value": false
+				"value": true
 			},
-			"items": {
+			"link_url": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"items_left": {
 				"__TYPE__": "GroupContentType",
 				"value": [
 					{
@@ -40,13 +51,13 @@
 								{
 									"origin": {
 										"id": "main",
-										"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
-										"width": 4024,
-										"height": 4024
+										"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+										"width": 4480,
+										"height": 4480
 									},
-									"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
-									"width": 4024,
-									"height": 4024,
+									"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+									"width": 4480,
+									"height": 4480,
 									"edit": {
 										"zoom": 1,
 										"crop": {
@@ -56,7 +67,7 @@
 										"background": "transparent"
 									},
 									"credits": null,
-									"alt": null,
+									"alt": "icon",
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
@@ -69,7 +80,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Aute ullamco proident Lorem anim proident voluptate adipisicing aute tempor consequat officia ut velit esse. Labore qui minim tempor ullamco veniam cillum pariatur sunt."
+												"text": "Eu Lorem nulla consequat veniam magna reprehenderit quis id. Amet aliquip sunt magna sit. Commodo veniam do et ullamco exercitation officia dolore magna cillum do dolor."
 											}
 										}
 									]
@@ -79,17 +90,65 @@
 					}
 				]
 			},
-			"link_url": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://google.com"
-				}
+			"item_right": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+										"width": 3277,
+										"height": 4092
+									},
+									"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+									"width": 3277,
+									"height": 4092,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": "icon",
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aliquip ut nulla minim commodo pariatur cillum. Adipisicing ullamco cillum consequat quis qui adipisicing labore incididunt sunt voluptate. Cillum amet aute laboris aliqua incididunt ad."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
 			},
 			"link_text": {
 				"__TYPE__": "FieldContent",
-				"value": "root",
-				"type": "Text"
+				"type": "Text",
+				"value": "Go To Link"
+			},
+			"link_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#50a1e6",
+				"type": "Color"
 			}
 		},
 		"items": []
