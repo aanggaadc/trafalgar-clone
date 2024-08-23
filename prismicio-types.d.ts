@@ -145,7 +145,10 @@ export type DayExperiencesDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomepageDocumentDataSlicesSlice = DayByDaySlice | TopTourSummarySlice;
+type HomepageDocumentDataSlicesSlice =
+  | HighlightsSlice
+  | DayByDaySlice
+  | TopTourSummarySlice;
 
 /**
  * Content for Homepage documents
