@@ -7,9 +7,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "paragraph",
+						"type": "heading2",
 						"content": {
-							"text": "Et labore commodo duis pariatur eiusmod cillum nulla."
+							"text": "Slide"
 						}
 					}
 				]
@@ -37,9 +37,15 @@
 							[
 								"answer",
 								{
-									"__TYPE__": "FieldContent",
-									"value": "create",
-									"type": "Text"
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aute ad amet adipisicing eiusmod voluptate eu ullamco irure officia et. Ipsum cillum veniam ut eiusmod aliquip ipsum commodo cillum officia laboris. Cillum ad adipisicing mollit deserunt ad fugiat culpa voluptate deserunt ad nostrud sunt aliqua."
+											}
+										}
+									]
 								}
 							]
 						]

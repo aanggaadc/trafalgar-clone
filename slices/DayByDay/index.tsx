@@ -14,8 +14,6 @@ export type DayByDayProps = SliceComponentProps<Content.DayByDaySlice>;
 const DayByDay = async ({ slice }: DayByDayProps): Promise<JSX.Element> => {
   const client = createClient();
 
-  console.log(slice.primary.details);
-
   const details = await Promise.all(
     slice.primary.details.map((item) => {
       if (isFilled.contentRelationship(item.items) && item.items.uid)

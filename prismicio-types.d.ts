@@ -147,6 +147,7 @@ export type DayExperiencesDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | QuestionAnswerSlice
   | HighlightsSlice
   | DayByDaySlice
   | TopTourSummarySlice;
@@ -612,12 +613,12 @@ export interface QuestionAnswerSliceDefaultPrimaryItemsItem {
   /**
    * Answer field in *QuestionAnswer → Default → Primary → Items*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: question_answer.default.primary.items[].answer
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  answer: prismic.KeyTextField;
+  answer: prismic.RichTextField;
 }
 
 /**
