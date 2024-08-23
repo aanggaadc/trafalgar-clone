@@ -61,6 +61,13 @@
                   "constraint": {},
                   "thumbnails": []
                 }
+              },
+              "routes": {
+                "type": "Text",
+                "config": {
+                  "label": "Routes",
+                  "placeholder": ""
+                }
               }
             }
           }

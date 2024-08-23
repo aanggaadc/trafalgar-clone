@@ -1,6 +1,6 @@
 "use client";
 
-import { Content } from "@prismicio/client";
+import { Content, KeyTextField } from "@prismicio/client";
 import { useState, useCallback } from "react";
 import {
   Accordion,
@@ -13,11 +13,11 @@ import { PrismicNextImage } from "@prismicio/next";
 import { ImageFieldImage, RichTextField } from "@prismicio/client";
 import DetailCard from "./detail-card";
 import OptionalExperience from "./optional-experience";
-import { DetailCardProps } from "./detail-card";
-import { OptionalCardProps } from "./optional-card";
+
 interface ItineraryCardProps {
   index: number;
   title: RichTextField;
+  routes: KeyTextField;
   image: ImageFieldImage;
   description: RichTextField;
   details: (Content.DayDetailsDocument<string> | undefined)[];
@@ -28,17 +28,17 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
   index,
   title,
   image,
+  routes,
   description,
   details,
   experiences,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const detailList = details.filter(
-    (detail) => detail?.data.ref === `day-${index + 1}`
-  );
+  const tag = `day-${index + 1}`;
+  const detailList = details.filter((detail) => detail?.tags.includes(tag));
 
-  const experienceList = experiences.filter(
-    (experience) => experience?.data.ref === `day-${index + 1}`
+  const experienceList = experiences.filter((experience) =>
+    experience?.tags.includes(tag)
   );
 
   const onToggle = useCallback(() => {
@@ -85,7 +85,9 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                   }}
                 />
 
-                <p className="text-sm font-noto-sans text-light-gray">Rome</p>
+                <p className="text-sm font-noto-sans text-light-gray">
+                  {routes}
+                </p>
               </div>
             </div>
           </div>

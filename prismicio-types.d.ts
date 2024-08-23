@@ -295,6 +295,16 @@ export interface DayByDaySliceDefaultPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Routes field in *DayByDay → Default → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_by_day.default.primary.items[].routes
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  routes: prismic.KeyTextField;
 }
 
 /**

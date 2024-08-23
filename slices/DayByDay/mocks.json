@@ -104,6 +104,14 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"routes",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "speed",
+									"type": "Text"
+								}
 							]
 						]
 					},
@@ -166,6 +174,14 @@
 									"alt": null,
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
+								}
+							],
+							[
+								"routes",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "cry",
+									"type": "Text"
 								}
 							]
 						]
