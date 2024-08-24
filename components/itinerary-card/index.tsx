@@ -12,7 +12,7 @@ import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { Simplify } from "@/prismicio-types";
 import DetailCard from "./detail-card";
-import OptionalExperience from "./optional-experience";
+import Experiences from "./experiences";
 import {
   ArrivalIcon,
   AccommodationIcon,
@@ -230,9 +230,7 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
               </div>
             </div>
 
-            {experienceList.length > 0 && (
-              <OptionalExperience data={experienceList} />
-            )}
+            {experienceList.length > 0 && <Experiences data={experienceList} />}
           </div>
         </AccordionContent>
       </AccordionItem>

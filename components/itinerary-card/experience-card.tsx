@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/tooltip";
 import { ChecklistIcon, QuestionIcon } from "../icons";
 
-export interface OptionalCardProps {
+export interface ExperienceCardProps {
   title: RichTextField | undefined;
   description: RichTextField | undefined;
   image: ImageFieldImage | undefined;
@@ -17,7 +17,7 @@ export interface OptionalCardProps {
   url: LinkField | undefined;
 }
 
-const OptionalCard: React.FC<OptionalCardProps> = ({
+const ExperienceCard: React.FC<ExperienceCardProps> = ({
   title,
   description,
   image,
@@ -111,4 +111,4 @@ const OptionalCard: React.FC<OptionalCardProps> = ({
   );
 };
 
-export default OptionalCard;
+export default ExperienceCard;

@@ -6,14 +6,14 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import OptionalCard from "./optional-card";
+import ExperienceCard from "./experience-card";
 import { ChevronIcon } from "../icons";
 
-export interface OptionalExperienceProps {
+export interface Experiences {
   data: (Content.DayExperiencesDocument<string> | undefined)[];
 }
 
-const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
+const Experiences: React.FC<Experiences> = ({ data }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState(0);
@@ -69,7 +69,7 @@ const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
         <CarouselContent>
           {data?.map((item, index) => (
             <CarouselItem key={index} className="lg:basis-1/2 xl:basis-1/3">
-              <OptionalCard
+              <ExperienceCard
                 title={item?.data.title}
                 description={item?.data.description}
                 image={item?.data.image}
@@ -116,4 +116,4 @@ const OptionalExperience: React.FC<OptionalExperienceProps> = ({ data }) => {
   );
 };
 
-export default OptionalExperience;
+export default Experiences;
