@@ -2,6 +2,7 @@ import React from "react";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import ButtonCalendar from "@/components/button-calendar";
 import { CalendarIcon, ChevronIcon } from "@/components/icons";
 
 /**
@@ -38,12 +39,9 @@ const TopTourSummary = ({ slice }: TopTourSummaryProps): JSX.Element => {
 
           <div className="flex items-center rounded border border-solid border-[#2d5a7b]">
             {[2024, 2025, 2026].map((item) => (
-              <button
-                key={item}
-                className={`w-[70px] h-[30px] flex items-center text-[#2d5a7b] justify-center font-bold font-noto-sans ${item === 2024 && "bg-[#2d5a7b] text-white"}`}
-              >
+              <ButtonCalendar key={item} isActive={item === 2024}>
                 {item}
-              </button>
+              </ButtonCalendar>
             ))}
           </div>
         </div>

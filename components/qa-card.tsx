@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { MinusIcon, PlusIcon } from "../icons";
+import { MinusIcon, PlusIcon } from "./icons";
 import {
   Accordion,
   AccordionContent,
