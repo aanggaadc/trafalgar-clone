@@ -13,7 +13,22 @@ import { PrismicNextImage } from "@prismicio/next";
 import { Simplify } from "@/prismicio-types";
 import DetailCard from "./detail-card";
 import OptionalExperience from "./optional-experience";
+import { ArrivalIcon, AccommodationIcon, MealsIcon, GroupIcon } from "../icons";
 import { getDayDetail } from "@/lib/utils";
+
+const headlineToCheck = ["welcome", "arrival_transfer", "departure_transfer"];
+export const detailNameMap: Record<string, string> = {
+  accommodation: "Accommodation",
+  meals: "Included Meals",
+  welcome: "Welcome",
+  arrival_transfer: "Arrival Transfer",
+};
+export const detailIconMap: Record<string, React.ReactNode> = {
+  accommodation: <AccommodationIcon />,
+  meals: <MealsIcon />,
+  welcome: <GroupIcon />,
+  arrival_transfer: <ArrivalIcon />,
+};
 
 interface ItineraryCardProps {
   index: number;
@@ -31,6 +46,9 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const tag = `day-${index + 1}`;
   const detailList = getDayDetail(item);
+  const headlineTag = detailList.filter((item) =>
+    headlineToCheck.includes(item.name)
+  );
   const experienceList = experiences.filter((experience) =>
     experience?.tags.includes(tag)
   );
@@ -93,6 +111,22 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                   {item.routes}
                 </p>
               </div>
+
+              {headlineTag.length > 0 && (
+                <div className="hidden items-center lg:flex gap-4">
+                  {headlineTag.map((item) => (
+                    <div className="flex items-center gap-[.65em]">
+                      <div className="py-[.65em]">
+                        {detailIconMap[item.name]}
+                      </div>
+
+                      <p className="text-sm font-noto-sans text-light-gray">
+                        {detailNameMap[item.name]}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
