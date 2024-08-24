@@ -21,10 +21,10 @@ const DetailCard: React.FC<DetailCardProps> = ({ name, description }) => {
   };
 
   return (
-    <div className="flex gap-2">
-      {iconMap[name]}
+    <div className="flex gap-2 items-center">
+      <div className="p-[11px]">{iconMap[name]}</div>
 
-      <div className="flex flex-col gap-1 lg:flex-row">
+      <div className="flex flex-wrap items-center gap-1">
         <p className="font-semibold text-gray text-sm font-noto-sans lg:text-base">
           {nameMap[name]}
         </p>
