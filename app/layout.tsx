@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createClient } from "@/prismicio";
-import { Source_Serif_4 } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -11,12 +11,26 @@ export async function generateMetadata(): Promise<Metadata> {
     description: page.data.meta_description,
   };
 }
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  display: "swap",
+
+const sourceSerif = localFont({
+  src: [
+    {
+      path: "../public/fonts/SourceSerifPro-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/SourceSerifPro-Semibold.otf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/SourceSerifPro-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-source-serif",
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
 });
 
 export default function RootLayout({
@@ -26,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={sourceSerif.className}>{children}</body>
+      <body className={sourceSerif.variable}>{children}</body>
     </html>
   );
 }

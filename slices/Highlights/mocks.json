@@ -9,10 +9,8 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "About this trip",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Hungry"
+						}
 					}
 				]
 			},
@@ -22,10 +20,8 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Sightseeing highlights",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Et ea ad amet qui ea fugiat non in duis nulla eiusmod consequat amet. Deserunt fugiat consequat irure pariatur nulla consequat cupidatat adipisicing sunt. Reprehenderit culpa eiusmod ad nisi fugiat nostrud deserunt esse elit ex cupidatat laborum non cillum excepteur."
+						}
 					}
 				]
 			},
