@@ -1,7 +1,7 @@
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import ItineraryCard from "@/components/itinerary-card";
 import { createClient } from "@/prismicio";
+import Cards from "./cards";
 
 /**
  * Props for `DayByDay`.
@@ -58,20 +58,11 @@ const DayByDay = async ({ slice }: DayByDayProps): Promise<JSX.Element> => {
           />
         </div>
 
-        <div className="flex flex-col lg:gap-4">
-          {slice.primary.items.map((item, index) => (
-            <ItineraryCard
-              key={index}
-              index={index}
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              routes={item.routes}
-              details={details}
-              experiences={experiences}
-            />
-          ))}
-        </div>
+        <Cards
+          items={slice.primary.items}
+          details={details}
+          experiences={experiences}
+        />
       </div>
     </section>
   );

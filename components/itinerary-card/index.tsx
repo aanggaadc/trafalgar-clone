@@ -1,7 +1,7 @@
 "use client";
 
 import { Content, KeyTextField } from "@prismicio/client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -22,6 +22,7 @@ interface ItineraryCardProps {
   description: RichTextField;
   details: (Content.DayDetailsDocument<string> | undefined)[];
   experiences: (Content.DayExperiencesDocument<string> | undefined)[];
+  open: boolean | undefined;
 }
 
 const ItineraryCard: React.FC<ItineraryCardProps> = ({
@@ -32,17 +33,28 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
   description,
   details,
   experiences,
+  open,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
   const tag = `day-${index + 1}`;
   const detailList = details.filter((detail) => detail?.tags.includes(tag));
   const experienceList = experiences.filter((experience) =>
     experience?.tags.includes(tag)
   );
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const onToggle = useCallback(() => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   }, []);
+
+  const handleStateChange = (value: boolean) => {
+    if (isOpen !== value) triggerRef?.current?.click();
+  };
+
+  useEffect(() => {
+    if (open !== undefined) handleStateChange(open);
+  }, [open]);
 
   return (
     <Accordion type="single" collapsible onValueChange={onToggle}>
@@ -91,7 +103,10 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
             </div>
           </div>
 
-          <AccordionTrigger className="flex items-center gap-2">
+          <AccordionTrigger
+            ref={triggerRef}
+            className="flex items-center gap-2"
+          >
             <span className="font-noto-sans font-bold text-base text-gray hidden lg:block">
               {isOpen ? "See less" : "See more"}
             </span>

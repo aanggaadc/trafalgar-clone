@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { MinusIcon, PlusIcon } from "../icons";
 import {
   Accordion,
@@ -17,28 +17,30 @@ interface QACardProps {
 }
 
 const QACard: React.FC<QACardProps> = ({ question, answer, open, index }) => {
-  // Inisialisasi isOpen dengan true untuk index 0
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
   const [isOpen, setIsOpen] = useState(index === 0);
 
   const onToggle = useCallback(() => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   }, []);
 
+  const handleStateChange = (value: boolean) => {
+    if (isOpen !== value) triggerRef?.current?.click();
+  };
+
   useEffect(() => {
-    if (open !== undefined) {
-      setIsOpen(open);
-    }
+    if (open !== undefined) handleStateChange(open);
   }, [open]);
 
   return (
     <Accordion
       type="single"
       collapsible
-      value={isOpen ? "item-1" : ""}
       onValueChange={onToggle}
+      defaultValue={index === 0 ? "item-1" : ""}
     >
       <AccordionItem value="item-1">
-        <AccordionTrigger className="p-0" hideIcon>
+        <AccordionTrigger ref={triggerRef} className="p-0" hideIcon>
           <div
             className={`w-full flex items-center justify-between p-3 transition-all duration-500 gap-2 border lg:px-[1.25em] lg:py-[1em] ${
               isOpen
