@@ -1,25 +1,25 @@
-import { PrismicNextImage } from "@prismicio/next";
-import { ImageFieldImage, KeyTextField } from "@prismicio/client";
+import { ArrivalIcon } from "../icons";
 
 export interface DetailCardProps {
-  name: KeyTextField | undefined;
-  description: KeyTextField | undefined;
-  icon: ImageFieldImage | undefined;
+  name: string;
+  description: string;
 }
 
-const DetailCard: React.FC<DetailCardProps> = ({ name, description, icon }) => {
+const DetailCard: React.FC<DetailCardProps> = ({ name, description }) => {
+  const nameMap: Record<string, string> = {
+    accommodation: "Accommodation",
+    meals: "Included Meals",
+    welcome: "Welcome",
+    arrival_transfer: "Arrival Transfer",
+  };
+
   return (
     <div className="flex gap-2">
-      <div className="flex-none w-[40px] h-[36px] overflow-hidden">
-        <PrismicNextImage
-          field={icon}
-          className="w-[70%] h-[70%] object-contain object-center"
-        />
-      </div>
+      <ArrivalIcon />
 
       <div className="flex flex-col gap-1 lg:flex-row">
         <p className="font-semibold text-gray text-sm font-noto-sans lg:text-base">
-          {name}
+          {nameMap[name]}
         </p>
         <p className="text-dark text-light-gray text-sm font-noto-sans lg:text-base">
           {description}

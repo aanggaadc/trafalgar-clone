@@ -1,6 +1,6 @@
 "use client";
 
-import { Content, KeyTextField } from "@prismicio/client";
+import { Content } from "@prismicio/client";
 import { useState, useCallback, useEffect, useRef } from "react";
 import {
   Accordion,
@@ -10,34 +10,27 @@ import {
 } from "@/components/ui/accordion";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
-import { ImageFieldImage, RichTextField } from "@prismicio/client";
+import { Simplify } from "@/prismicio-types";
 import DetailCard from "./detail-card";
 import OptionalExperience from "./optional-experience";
+import { getDayDetail } from "@/lib/utils";
 
 interface ItineraryCardProps {
   index: number;
-  title: RichTextField;
-  routes: KeyTextField;
-  image: ImageFieldImage;
-  description: RichTextField;
-  details: (Content.DayDetailsDocument<string> | undefined)[];
+  item: Simplify<Content.DayByDaySliceDefaultPrimaryItemsItem>;
   experiences: (Content.DayExperiencesDocument<string> | undefined)[];
   open: boolean | undefined;
 }
 
 const ItineraryCard: React.FC<ItineraryCardProps> = ({
   index,
-  title,
-  image,
-  routes,
-  description,
-  details,
+  item,
   experiences,
   open,
 }) => {
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const tag = `day-${index + 1}`;
-  const detailList = details.filter((detail) => detail?.tags.includes(tag));
+  const detailList = getDayDetail(item);
   const experienceList = experiences.filter((experience) =>
     experience?.tags.includes(tag)
   );
@@ -71,7 +64,7 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
               }`}
             >
               <PrismicNextImage
-                field={image}
+                field={item.image}
                 className="w-full h-full object-cover object-center"
               />
             </div>
@@ -86,7 +79,7 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
               </p>
               <div className="flex flex-col lg:flex-row lg:items-center gap-[.625rem] lg:gap-[1rem] ">
                 <PrismicRichText
-                  field={title}
+                  field={item.title}
                   components={{
                     heading2: ({ children }) => (
                       <h2 className="font-bold font-source-serif text-gray lg:text-lg">
@@ -97,7 +90,7 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                 />
 
                 <p className="text-sm font-noto-sans text-light-gray">
-                  {routes}
+                  {item.routes}
                 </p>
               </div>
             </div>
@@ -124,7 +117,7 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                 }`}
               >
                 <PrismicNextImage
-                  field={image}
+                  field={item.image}
                   className="w-full h-full object-cover object-center"
                 />
               </div>
@@ -140,7 +133,7 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                   Day {index + 1}
                 </p>
                 <PrismicRichText
-                  field={title}
+                  field={item.title}
                   components={{
                     heading2: ({ children }) => (
                       <h2 className="font-source-serif text-lg mb-6 font-bold text-gray lg:text-[28px] lg:mb-2">
@@ -151,7 +144,7 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                 />
 
                 <PrismicRichText
-                  field={description}
+                  field={item.description}
                   components={{
                     paragraph: ({ children }) => (
                       <p className="leading-[150%] text-sm font-noto-sans text-light-gray mb-4 lg:text-base lg:leading-[170%]">
@@ -165,9 +158,8 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                   {detailList?.map((detail, index) => (
                     <DetailCard
                       key={index}
-                      name={detail?.data.name}
-                      description={detail?.data.description}
-                      icon={detail?.data.icon}
+                      name={detail.name}
+                      description={detail.description}
                     />
                   ))}
                 </div>

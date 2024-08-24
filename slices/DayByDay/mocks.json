@@ -112,6 +112,46 @@
 									"value": "speed",
 									"type": "Text"
 								}
+							],
+							[
+								"welcome",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "is",
+									"type": "Text"
+								}
+							],
+							[
+								"meals",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "board",
+									"type": "Text"
+								}
+							],
+							[
+								"arrival_transfer",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "advice",
+									"type": "Text"
+								}
+							],
+							[
+								"departure_transfer",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "beautiful",
+									"type": "Text"
+								}
+							],
+							[
+								"accommodation",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "someone",
+									"type": "Text"
+								}
 							]
 						]
 					},
@@ -181,6 +221,46 @@
 								{
 									"__TYPE__": "FieldContent",
 									"value": "cry",
+									"type": "Text"
+								}
+							],
+							[
+								"welcome",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "include",
+									"type": "Text"
+								}
+							],
+							[
+								"meals",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "song",
+									"type": "Text"
+								}
+							],
+							[
+								"arrival_transfer",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "size",
+									"type": "Text"
+								}
+							],
+							[
+								"departure_transfer",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "atmosphere",
+									"type": "Text"
+								}
+							],
+							[
+								"accommodation",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "divide",
 									"type": "Text"
 								}
 							]

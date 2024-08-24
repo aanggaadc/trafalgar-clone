@@ -68,6 +68,41 @@
                   "label": "Routes",
                   "placeholder": ""
                 }
+              },
+              "welcome": {
+                "type": "Text",
+                "config": {
+                  "label": "Welcome",
+                  "placeholder": ""
+                }
+              },
+              "meals": {
+                "type": "Text",
+                "config": {
+                  "label": "Meals",
+                  "placeholder": ""
+                }
+              },
+              "accommodation": {
+                "type": "Text",
+                "config": {
+                  "label": "Accommodation",
+                  "placeholder": ""
+                }
+              },
+              "arrival_transfer": {
+                "type": "Text",
+                "config": {
+                  "label": "Arrival Transfer",
+                  "placeholder": ""
+                }
+              },
+              "departure_transfer": {
+                "type": "Text",
+                "config": {
+                  "label": "Departure Transfer",
+                  "placeholder": ""
+                }
               }
             }
           }

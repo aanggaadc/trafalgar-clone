@@ -5,71 +5,6 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
- * Content for Day Details documents
- */
-interface DayDetailsDocumentData {
-  /**
-   * Name field in *Day Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_details.name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  name: prismic.KeyTextField;
-
-  /**
-   * Reference field in *Day Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_details.ref
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  ref: prismic.KeyTextField;
-
-  /**
-   * Description field in *Day Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_details.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description: prismic.KeyTextField;
-
-  /**
-   * Icon field in *Day Details*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_details.icon
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  icon: prismic.ImageField<never>;
-}
-
-/**
- * Day Details document from Prismic
- *
- * - **API ID**: `day_details`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type DayDetailsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<DayDetailsDocumentData>,
-    "day_details",
-    Lang
-  >;
-
-/**
  * Content for Day Experiences documents
  */
 interface DayExperiencesDocumentData {
@@ -259,7 +194,6 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
-  | DayDetailsDocument
   | DayExperiencesDocument
   | HomepageDocument
   | SettingsDocument;
@@ -307,6 +241,56 @@ export interface DayByDaySliceDefaultPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   routes: prismic.KeyTextField;
+
+  /**
+   * Welcome field in *DayByDay → Default → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_by_day.default.primary.items[].welcome
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  welcome: prismic.KeyTextField;
+
+  /**
+   * Meals field in *DayByDay → Default → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_by_day.default.primary.items[].meals
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meals: prismic.KeyTextField;
+
+  /**
+   * Accommodation field in *DayByDay → Default → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_by_day.default.primary.items[].accommodation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  accommodation: prismic.KeyTextField;
+
+  /**
+   * Arrival Transfer field in *DayByDay → Default → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_by_day.default.primary.items[].arrival_transfer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  arrival_transfer: prismic.KeyTextField;
+
+  /**
+   * Departure Transfer field in *DayByDay → Default → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: day_by_day.default.primary.items[].departure_transfer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  departure_transfer: prismic.KeyTextField;
 }
 
 /**
@@ -882,8 +866,6 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      DayDetailsDocument,
-      DayDetailsDocumentData,
       DayExperiencesDocument,
       DayExperiencesDocumentData,
       HomepageDocument,

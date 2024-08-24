@@ -6,3 +6,4 @@ export * from "./minus";
 export * from "./plus";
 export * from "./download-document";
 export * from "./print";
+export * from "./arrival";

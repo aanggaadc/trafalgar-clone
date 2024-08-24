@@ -9,11 +9,10 @@ import { DownloadDocumentIcon, PrintIcon } from "@/components/icons";
 
 interface CardsProps {
   items: GroupField<Simplify<Content.DayByDaySliceDefaultPrimaryItemsItem>>;
-  details: (Content.DayDetailsDocument<string> | undefined)[];
   experiences: (Content.DayExperiencesDocument<string> | undefined)[];
 }
 
-const Cards: React.FC<CardsProps> = ({ items, details, experiences }) => {
+const Cards: React.FC<CardsProps> = ({ items, experiences }) => {
   const [openAll, setOpenAll] = useState<boolean | undefined>(undefined);
 
   const onToggle = useCallback(() => {
@@ -49,14 +48,10 @@ const Cards: React.FC<CardsProps> = ({ items, details, experiences }) => {
         {items.map((item, index) => (
           <ItineraryCard
             key={index}
-            index={index}
-            image={item.image}
-            title={item.title}
-            description={item.description}
-            routes={item.routes}
-            details={details}
-            experiences={experiences}
             open={openAll}
+            item={item}
+            index={index}
+            experiences={experiences}
           />
         ))}
       </div>
