@@ -1,6 +1,6 @@
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import QACard from "@/components/qa-card";
+import Cards from "./cards";
 
 /**
  * Props for `QuestionAnswer`.
@@ -29,15 +29,7 @@ const QuestionAnswer = ({ slice }: QuestionAnswerProps): JSX.Element => {
           }}
         />
 
-        <div className="flex flex-col gap-1 pt-4 lg:pt-8">
-          {slice.primary.items.map((item, index) => (
-            <QACard
-              question={item.question}
-              defaultOpen={index === 0 ? true : false}
-              answer={item.answer}
-            />
-          ))}
-        </div>
+        <Cards items={slice.primary.items} />
       </div>
     </section>
   );
