@@ -55,6 +55,20 @@
           "allowTargetBlank": true,
           "select": null
         }
+      },
+      "special_experience": {
+        "type": "Text",
+        "config": {
+          "label": "Special Experience",
+          "placeholder": "fill if is special experience only"
+        }
+      },
+      "special_experience_color": {
+        "type": "Color",
+        "config": {
+          "label": "Special Experience Color",
+          "placeholder": "Fill the background color of special experience"
+        }
       }
     }
   }

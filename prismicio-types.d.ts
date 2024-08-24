@@ -63,6 +63,28 @@ interface DayExperiencesDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   url: prismic.LinkField;
+
+  /**
+   * Special Experience field in *Day Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: fill if is special experience only
+   * - **API ID Path**: day_experiences.special_experience
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  special_experience: prismic.KeyTextField;
+
+  /**
+   * Special Experience Color field in *Day Experiences*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: Fill the background color of special experience
+   * - **API ID Path**: day_experiences.special_experience_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  special_experience_color: prismic.ColorField;
 }
 
 /**

@@ -1,6 +1,7 @@
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { ImageFieldImage, LinkField, RichTextField } from "@prismicio/client";
+import { Content } from "@prismicio/client";
+import { Simplify } from "@/prismicio-types";
 import {
   Tooltip,
   TooltipContent,
@@ -9,27 +10,34 @@ import {
 } from "@/components/ui/tooltip";
 import { ChecklistIcon, QuestionIcon } from "../icons";
 
-export interface ExperienceCardProps {
-  title: RichTextField | undefined;
-  description: RichTextField | undefined;
-  image: ImageFieldImage | undefined;
-  isInclude: boolean | undefined;
-  url: LinkField | undefined;
-}
+export interface ExperienceCardProps
+  extends Simplify<Content.DayExperiencesDocumentData> {}
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({
+  is_include,
+  image,
   title,
   description,
-  image,
-  isInclude,
   url,
+  special_experience,
+  special_experience_color,
 }) => {
   return (
     <div className="relative w-full h-full flex flex-col rounded-md border border-[#e6e6e6] overflow-hidden lg:rounded-lg">
       <div
-        className={`absolute m-2 z-[2] py-1 px-2 rounded font-noto-sans text-sm leading-4 font-bold  ${isInclude ? "text-white bg-[#503454]" : "bg-[#f5f5f5] text-grayw "}`}
+        className={`absolute m-2 z-[2] py-1 px-2 rounded font-noto-sans text-sm leading-4 font-bold  ${is_include ? "text-white bg-[#503454]" : "bg-[#f5f5f5] text-gray"}`}
+        style={{
+          backgroundColor: special_experience
+            ? (special_experience_color as string)
+            : "",
+          color: special_experience ? "fff" : "",
+        }}
       >
-        {isInclude ? "Iconic Experience" : "Optional Experience"}
+        {special_experience
+          ? special_experience
+          : is_include
+            ? "Iconic Experience"
+            : "Optional Experience"}
       </div>
       <div className="w-full aspect-[309/154] overflow-hidden">
         <PrismicNextImage
@@ -64,7 +72,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         </div>
 
         <div className="pb-4">
-          {!isInclude && (
+          {!is_include && (
             <PrismicNextLink
               className="block mb-4 font-noto-sans text-sm text-gray font-bold"
               field={url}
@@ -73,17 +81,17 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             </PrismicNextLink>
           )}
           <div
-            className={`flex items-center gap-2 ${!isInclude && "justify-between"}`}
+            className={`flex items-center gap-2 ${!is_include && "justify-between"}`}
           >
-            {isInclude && <ChecklistIcon className="fill-[#503454]" />}
+            {is_include && <ChecklistIcon className="fill-[#503454]" />}
 
             <span
-              className={`text-xs font-bold font-noto-sans lg:text-sm ${isInclude ? "text-[#503454]" : "text-gray"}`}
+              className={`text-xs font-bold font-noto-sans lg:text-sm ${is_include ? "text-[#503454]" : "text-gray"}`}
             >
-              {isInclude ? "Included with trip" : "Additional Cost Applies"}
+              {is_include ? "Included with trip" : "Additional Cost Applies"}
             </span>
 
-            {!isInclude && (
+            {!is_include && (
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>

@@ -37,6 +37,7 @@ const Experiences: React.FC<Experiences> = ({ data }) => {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
+
   return (
     <div className="px-2 py-4 lg:p-0 lg:pt-4 lg:mb-4">
       <div className="flex items-center justify-between mb-6">
@@ -45,7 +46,7 @@ const Experiences: React.FC<Experiences> = ({ data }) => {
         </p>
 
         <div
-          className={`hidden items-center gap-6 lg:flex ${api && !api?.canScrollNext() && "opacity-0 invisible"}`}
+          className={`hidden items-center gap-6 lg:flex ${api && !api.canScrollNext() && !api.canScrollPrev() && "opacity-0 invisible"}`}
         >
           <button
             onClick={() => api?.scrollPrev()}
@@ -69,13 +70,7 @@ const Experiences: React.FC<Experiences> = ({ data }) => {
         <CarouselContent>
           {data?.map((item, index) => (
             <CarouselItem key={index} className="lg:basis-1/2 xl:basis-1/3">
-              <ExperienceCard
-                title={item?.data.title}
-                description={item?.data.description}
-                image={item?.data.image}
-                isInclude={item?.data.is_include}
-                url={item?.data.url}
-              />
+              {item?.data && <ExperienceCard {...item?.data} />}
             </CarouselItem>
           ))}
         </CarouselContent>
