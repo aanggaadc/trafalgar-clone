@@ -13,21 +13,33 @@ import { PrismicNextImage } from "@prismicio/next";
 import { Simplify } from "@/prismicio-types";
 import DetailCard from "./detail-card";
 import OptionalExperience from "./optional-experience";
-import { ArrivalIcon, AccommodationIcon, MealsIcon, GroupIcon } from "../icons";
+import {
+  ArrivalIcon,
+  AccommodationIcon,
+  MealsIcon,
+  GroupIcon,
+  DepartureIcon,
+} from "../icons";
 import { getDayDetail } from "@/lib/utils";
 
-const headlineToCheck = ["welcome", "arrival_transfer", "departure_transfer"];
+const detailHeadlineToCheck = [
+  "welcome",
+  "arrival_transfer",
+  "departure_transfer",
+];
 export const detailNameMap: Record<string, string> = {
   accommodation: "Accommodation",
   meals: "Included Meals",
   welcome: "Welcome",
   arrival_transfer: "Arrival Transfer",
+  departure_transfer: "Departure Transfer",
 };
 export const detailIconMap: Record<string, React.ReactNode> = {
   accommodation: <AccommodationIcon />,
   meals: <MealsIcon />,
   welcome: <GroupIcon />,
   arrival_transfer: <ArrivalIcon />,
+  departure_transfer: <DepartureIcon />,
 };
 
 interface ItineraryCardProps {
@@ -46,8 +58,8 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const tag = `day-${index + 1}`;
   const detailList = getDayDetail(item);
-  const headlineTag = detailList.filter((item) =>
-    headlineToCheck.includes(item.name)
+  const detailHeadlineTag = detailList.filter((item) =>
+    detailHeadlineToCheck.includes(item.name)
   );
   const experienceList = experiences.filter((experience) =>
     experience?.tags.includes(tag)
@@ -112,9 +124,9 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                 </p>
               </div>
 
-              {headlineTag.length > 0 && (
+              {detailHeadlineTag.length > 0 && (
                 <div className="hidden items-center lg:flex gap-4">
-                  {headlineTag.map((item) => (
+                  {detailHeadlineTag.map((item) => (
                     <div className="flex items-center gap-[.65em]">
                       <div className="py-[.65em]">
                         {detailIconMap[item.name]}
@@ -200,7 +212,9 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
               </div>
             </div>
 
-            <OptionalExperience data={experienceList} />
+            {experienceList.length > 0 && (
+              <OptionalExperience data={experienceList} />
+            )}
           </div>
         </AccordionContent>
       </AccordionItem>
