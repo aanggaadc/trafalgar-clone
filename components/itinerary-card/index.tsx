@@ -104,9 +104,24 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
                 isOpen ? "lg:-translate-x-[200px]" : ""
               }`}
             >
-              <p className="text-light-gray font-noto-sans font-semibold text-xs mb-[.625rem] lg:text-base">
-                Day {index + 1}
-              </p>
+              <div className="mb-[.625rem] flex items-center gap-4">
+                <p className="text-light-gray font-noto-sans font-semibold text-xs  lg:text-base">
+                  Day {index + 1}
+                </p>
+
+                {item.special_experience && (
+                  <div
+                    className="py-1 px-2 rounded-md font-noto-sans font-bold text-[10px] text-white lg:text-sm"
+                    style={{
+                      backgroundColor:
+                        item.special_experience_color ?? "#503454",
+                    }}
+                  >
+                    {item.special_experience}
+                  </div>
+                )}
+              </div>
+
               <div className="flex flex-col lg:flex-row lg:items-center gap-[.625rem] lg:gap-[1rem] ">
                 <PrismicRichText
                   field={item.title}
@@ -127,7 +142,10 @@ const ItineraryCard: React.FC<ItineraryCardProps> = ({
               {detailHeadlineTag.length > 0 && (
                 <div className="hidden items-center lg:flex gap-4">
                   {detailHeadlineTag.map((item) => (
-                    <div className="flex items-center gap-[.65em]">
+                    <div
+                      key={item.name}
+                      className="flex items-center gap-[.65em]"
+                    >
                       <div className="py-[.65em]">
                         {detailIconMap[item.name]}
                       </div>

@@ -17,26 +17,26 @@ export const AccommodationIcon: React.FC<IIcon> = ({ className }) => {
         fill="#414142"
       ></path>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M16.2677 5.4953L18.4211 6.62739L18.0098 4.22958L19.752 2.53144L17.3444 2.1816L16.2677 0L15.191 2.1816L12.7835 2.53144L14.5256 4.22958L14.1144 6.62739L16.2677 5.4953Z"
         fill="#414142"
       ></path>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M1.91897 2.28971L2.81621 2.76141L2.64485 1.76232L3.37073 1.05477L2.36759 0.909001L1.91897 0L1.47035 0.909001L0.467207 1.05477L1.19309 1.76232L1.02173 2.76141L1.91897 2.28971Z"
         fill="#414142"
       ></path>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M19.0154 12.6697L19.9126 13.1414L19.7413 12.1423L20.4672 11.4347L19.464 11.2889L19.0154 10.3799L18.5668 11.2889L17.5636 11.4347L18.2895 12.1423L18.1182 13.1414L19.0154 12.6697Z"
         fill="#414142"
       ></path>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M3.44537 18.9282L4.88095 19.683L4.60678 18.0844L5.76819 16.9523L4.16316 16.7191L3.44537 15.2647L2.72758 16.7191L1.12255 16.9523L2.28396 18.0844L2.00979 19.683L3.44537 18.9282Z"
         fill="#414142"
       ></path>

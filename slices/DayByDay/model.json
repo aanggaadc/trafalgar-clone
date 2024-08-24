@@ -103,24 +103,19 @@
                   "label": "Departure Transfer",
                   "placeholder": ""
                 }
-              }
-            }
-          }
-        },
-        "details": {
-          "type": "Group",
-          "config": {
-            "label": "Details",
-            "repeat": true,
-            "fields": {
-              "items": {
-                "type": "Link",
+              },
+              "special_experience": {
+                "type": "Text",
                 "config": {
-                  "label": "items",
-                  "select": "document",
-                  "customtypes": [
-                    "day_details"
-                  ]
+                  "label": "Special Experience",
+                  "placeholder": "fill if is special experience only"
+                }
+              },
+              "special_experience_color": {
+                "type": "Color",
+                "config": {
+                  "label": "Special Experience Color",
+                  "placeholder": "Fill the background color of special experience"
                 }
               }
             }

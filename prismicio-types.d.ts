@@ -291,21 +291,26 @@ export interface DayByDaySliceDefaultPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   departure_transfer: prismic.KeyTextField;
-}
 
-/**
- * Item in *DayByDay → Default → Primary → Details*
- */
-export interface DayByDaySliceDefaultPrimaryDetailsItem {
   /**
-   * items field in *DayByDay → Default → Primary → Details*
+   * Special Experience field in *DayByDay → Default → Primary → items*
    *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.details[].items
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Field Type**: Text
+   * - **Placeholder**: fill if is special experience only
+   * - **API ID Path**: day_by_day.default.primary.items[].special_experience
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  items: prismic.ContentRelationshipField<"day_details">;
+  special_experience: prismic.KeyTextField;
+
+  /**
+   * Special Experience Color field in *DayByDay → Default → Primary → items*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: Fill the background color of special experience
+   * - **API ID Path**: day_by_day.default.primary.items[].special_experience_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  special_experience_color: prismic.ColorField;
 }
 
 /**
@@ -356,16 +361,6 @@ export interface DayByDaySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   items: prismic.GroupField<Simplify<DayByDaySliceDefaultPrimaryItemsItem>>;
-
-  /**
-   * Details field in *DayByDay → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: day_by_day.default.primary.details[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  details: prismic.GroupField<Simplify<DayByDaySliceDefaultPrimaryDetailsItem>>;
 
   /**
    * Experiences field in *DayByDay → Default → Primary*
@@ -876,7 +871,6 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       DayByDaySlice,
       DayByDaySliceDefaultPrimaryItemsItem,
-      DayByDaySliceDefaultPrimaryDetailsItem,
       DayByDaySliceDefaultPrimaryExperiencesItem,
       DayByDaySliceDefaultPrimary,
       DayByDaySliceVariation,

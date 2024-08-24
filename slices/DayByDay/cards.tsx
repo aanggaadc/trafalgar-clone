@@ -14,6 +14,7 @@ interface CardsProps {
 
 const Cards: React.FC<CardsProps> = ({ items, experiences }) => {
   const [openAll, setOpenAll] = useState<boolean | undefined>(undefined);
+  console.log(items);
 
   const onToggle = useCallback(() => {
     setOpenAll((prev) => !prev);
