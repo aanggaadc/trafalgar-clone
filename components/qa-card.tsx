@@ -53,7 +53,7 @@ const QACard: React.FC<QACardProps> = ({ question, answer, open, index }) => {
               components={{
                 heading2: ({ children }) => (
                   <h2
-                    className={`font-noto-sans font-bold transition-all duration-500 text-gray text-lg ${
+                    className={`font-noto-sans font-bold transition-all duration-500 text-gray text-lg text-left ${
                       isOpen ? "text-white" : "text-gray"
                     }`}
                   >
@@ -63,7 +63,7 @@ const QACard: React.FC<QACardProps> = ({ question, answer, open, index }) => {
               }}
             />
 
-            <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#e6e6e6]">
+            <div className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-[#e6e6e6]">
               {isOpen ? (
                 <MinusIcon className="fill-[#414141]" />
               ) : (
