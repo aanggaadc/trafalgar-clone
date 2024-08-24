@@ -42,7 +42,7 @@
                   "label": "Answer",
                   "placeholder": "",
                   "allowTargetBlank": true,
-                  "multi": "paragraph,strong,em,embed"
+                  "multi": "paragraph,strong,em,embed,hyperlink"
                 }
               }
             }

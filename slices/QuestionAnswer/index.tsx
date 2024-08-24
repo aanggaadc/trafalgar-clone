@@ -30,8 +30,12 @@ const QuestionAnswer = ({ slice }: QuestionAnswerProps): JSX.Element => {
         />
 
         <div className="flex flex-col gap-1 pt-4 lg:pt-8">
-          {slice.primary.items.map((item) => (
-            <QACard question={item.question} answer={item.answer} />
+          {slice.primary.items.map((item, index) => (
+            <QACard
+              question={item.question}
+              defaultOpen={index === 0 ? true : false}
+              answer={item.answer}
+            />
           ))}
         </div>
       </div>

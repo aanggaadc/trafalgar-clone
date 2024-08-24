@@ -14,16 +14,26 @@ import { KeyTextField, RichTextField } from "@prismicio/client";
 interface QACardProps {
   question: RichTextField | undefined;
   answer: RichTextField | undefined;
+  defaultOpen?: boolean;
 }
 
-const QACard: React.FC<QACardProps> = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const QACard: React.FC<QACardProps> = ({
+  question,
+  answer,
+  defaultOpen = false,
+}) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
 
   const onToggle = useCallback(() => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   }, []);
   return (
-    <Accordion type="single" collapsible onValueChange={onToggle}>
+    <Accordion
+      type="single"
+      collapsible
+      onValueChange={onToggle}
+      defaultValue={defaultOpen ? "item-1" : ""}
+    >
       <AccordionItem value="item-1">
         <AccordionTrigger className="p-0" hideIcon>
           <div
