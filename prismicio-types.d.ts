@@ -481,6 +481,27 @@ export interface HighlightsSliceDefaultPrimaryItemRightItem {
  */
 export interface HighlightsSliceDefaultPrimary {
   /**
+   * Use Header field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: highlights.default.primary.is_header
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_header: prismic.BooleanField;
+
+  /**
+   * Header field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header: prismic.RichTextField;
+
+  /**
    * Title field in *Highlights → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -491,17 +512,28 @@ export interface HighlightsSliceDefaultPrimary {
   title: prismic.RichTextField;
 
   /**
-   * Description field in *Highlights → Default → Primary*
+   * Use description field in *Highlights → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **API ID Path**: highlights.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Default Value**: false
+   * - **API ID Path**: highlights.default.primary.is_description
+   * - **Documentation**: https://prismic.io/docs/field#boolean
    */
-  description: prismic.RichTextField;
+  is_description: prismic.BooleanField;
 
   /**
-   * Is Link field in *Highlights → Default → Primary*
+   * Description field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: highlights.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Use Link field in *Highlights → Default → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*

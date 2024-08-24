@@ -3,31 +3,9 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Hungry"
-						}
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Et ea ad amet qui ea fugiat non in duis nulla eiusmod consequat amet. Deserunt fugiat consequat irure pariatur nulla consequat cupidatat adipisicing sunt. Reprehenderit culpa eiusmod ad nisi fugiat nostrud deserunt esse elit ex cupidatat laborum non cillum excepteur."
-						}
-					}
-				]
-			},
 			"is_link": {
 				"__TYPE__": "BooleanContent",
-				"value": true
+				"value": false
 			},
 			"link_url": {
 				"__TYPE__": "LinkContent",
@@ -145,6 +123,41 @@
 				"__TYPE__": "FieldContent",
 				"value": "#50a1e6",
 				"type": "Color"
+			},
+			"is_header": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"header": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Begun"
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit ut in reprehenderit velit culpa veniam velit magna culpa pariatur."
+						}
+					}
+				]
+			},
+			"is_description": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "battle",
+				"type": "Text"
 			}
 		},
 		"items": []

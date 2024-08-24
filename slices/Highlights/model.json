@@ -12,28 +12,53 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "is_header": {
+          "type": "Boolean",
+          "config": {
+            "label": "Use Header",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
+        "header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,strong,em,embed,rtl"
+          }
+        },
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "heading2,strong,em,rtl,embed"
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "is_description": {
+          "type": "Boolean",
+          "config": {
+            "label": "Use description",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "description": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,embed,rtl"
+            "placeholder": ""
           }
         },
         "is_link": {
           "type": "Boolean",
           "config": {
-            "label": "Is Link",
+            "label": "Use Link",
             "placeholder_false": "false",
             "placeholder_true": "true",
             "default_value": false

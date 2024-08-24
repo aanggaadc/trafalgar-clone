@@ -19,29 +19,41 @@ const Highlights = ({ slice }: HighlightsProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <div className="px-4 py-6 flex flex-col gap-4 lg:py-12 lg:gap-0 lg:px-[clamp(0.5rem,(100vw_-_1380px)/2,100vw)]">
-        <PrismicRichText
-          field={slice.primary.title}
-          components={{
-            heading2: ({ children }) => (
-              <h2 className="py-5 text-center text-gray font-source-serif font-bold text-[28px] leading-[125%] lg:text-left lg:py-6 xl:text-3xl xl:py-8">
-                {children}
-              </h2>
-            ),
-          }}
-        />
+        {slice.primary.is_header && (
+          <PrismicRichText
+            field={slice.primary.header}
+            components={{
+              heading2: ({ children }) => (
+                <h2 className="py-5 text-center text-gray font-source-serif font-bold text-[28px] leading-[125%] lg:text-left lg:py-6 xl:text-3xl xl:py-8">
+                  {children}
+                </h2>
+              ),
+            }}
+          />
+        )}
 
         <div className="flex flex-col lg:flex-row lg:gap-4">
           <div className="pb-4 lg:w-[30%] lg:p-0">
             <PrismicRichText
-              field={slice.primary.description}
+              field={slice.primary.title}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="text-light-gray  text-2xl font-source-serif font-bold leading-[125%] text-center lg:text-lg lg:text-left xl:text-2xl">
+                  <p
+                    className="text-2xl font-source-serif font-bold leading-[125%] text-center lg:text-lg lg:text-left xl:text-2xl"
+                    style={{ color: slice.primary.link_color ?? "#6b6b6b" }}
+                  >
                     {children}
                   </p>
                 ),
               }}
             />
+
+            {slice.primary.is_description && (
+              <p className="text-center mt-2 font-noto-sans text-sm text-light-gray lg:text-left">
+                {slice.primary.description}
+              </p>
+            )}
+
             {slice.primary.is_link && (
               <ButtonLink
                 className="hidden lg:block mx-0"
