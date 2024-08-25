@@ -39,6 +39,13 @@
             "multi": "paragraph,strong,em"
           }
         },
+        "base_color": {
+          "type": "Color",
+          "config": {
+            "label": "Base Color",
+            "placeholder": "color for title text and link button"
+          }
+        },
         "is_description": {
           "type": "Boolean",
           "config": {
@@ -77,13 +84,6 @@
             "label": "Link URL",
             "placeholder": "",
             "select": null
-          }
-        },
-        "link_color": {
-          "type": "Color",
-          "config": {
-            "label": "Link Color",
-            "placeholder": ""
           }
         },
         "items_left": {

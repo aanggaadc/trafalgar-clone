@@ -40,7 +40,7 @@ const Highlights = ({ slice }: HighlightsProps): JSX.Element => {
                 paragraph: ({ children }) => (
                   <p
                     className="text-2xl font-source-serif font-bold leading-[125%] text-center lg:text-lg lg:text-left xl:text-2xl"
-                    style={{ color: slice.primary.link_color ?? "#6b6b6b" }}
+                    style={{ color: slice.primary.base_color ?? "#6b6b6b" }}
                   >
                     {children}
                   </p>
@@ -58,7 +58,7 @@ const Highlights = ({ slice }: HighlightsProps): JSX.Element => {
               <ButtonLink
                 className="hidden lg:block mx-0"
                 url={slice.primary.link_url}
-                color={slice.primary.link_color}
+                color={slice.primary.base_color}
               >
                 {slice.primary.link_text}
               </ButtonLink>
@@ -119,7 +119,7 @@ const Highlights = ({ slice }: HighlightsProps): JSX.Element => {
             <ButtonLink
               className="lg:hidden"
               url={slice.primary.link_url}
-              color={slice.primary.link_color}
+              color={slice.primary.base_color}
             >
               {slice.primary.link_text}
             </ButtonLink>

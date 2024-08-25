@@ -119,11 +119,6 @@
 				"type": "Text",
 				"value": "Go To Link"
 			},
-			"link_color": {
-				"__TYPE__": "FieldContent",
-				"value": "#50a1e6",
-				"type": "Color"
-			},
 			"is_header": {
 				"__TYPE__": "BooleanContent",
 				"value": true
@@ -158,6 +153,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "battle",
 				"type": "Text"
+			},
+			"base_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#397c95",
+				"type": "Color"
 			}
 		},
 		"items": []

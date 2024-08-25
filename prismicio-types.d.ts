@@ -513,6 +513,16 @@ export interface HighlightsSliceDefaultPrimary {
   title: prismic.RichTextField;
 
   /**
+   * Base Color field in *Highlights → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: color for title text and link button
+   * - **API ID Path**: highlights.default.primary.base_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  base_color: prismic.ColorField;
+
+  /**
    * Use description field in *Highlights → Default → Primary*
    *
    * - **Field Type**: Boolean
@@ -563,16 +573,6 @@ export interface HighlightsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link_url: prismic.LinkField;
-
-  /**
-   * Link Color field in *Highlights → Default → Primary*
-   *
-   * - **Field Type**: Color
-   * - **Placeholder**: *None*
-   * - **API ID Path**: highlights.default.primary.link_color
-   * - **Documentation**: https://prismic.io/docs/field#color
-   */
-  link_color: prismic.ColorField;
 
   /**
    * Items Left field in *Highlights → Default → Primary*
