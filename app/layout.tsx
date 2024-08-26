@@ -1,5 +1,6 @@
+import { PrismicPreview } from "@prismicio/next";
 import type { Metadata } from "next";
-import { createClient } from "@/prismicio";
+import { createClient, repositoryName } from "@/prismicio";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -40,7 +41,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={sourceSerif.variable}>{children}</body>
+      <body className={sourceSerif.variable}>
+        {children}
+        <PrismicPreview repositoryName={repositoryName} />
+      </body>
     </html>
   );
 }
